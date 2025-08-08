@@ -19,31 +19,6 @@ void print_welcome() {
     cout << endl;
 }
 
-void syslogin()
-{
-    int attempts = 0 , max_attempts = 3 ;
-
-     while(attempts < max_attempts)
-        {
-            cout << "\033[1;34mUserName : \033[0m ";
-            //cin >> in[0];
-            getline(cin,in.at(0));
-            cout << "\033[1;32mPassWord : \033[0m ";
-            //cin >> in.at(1);
-            //cin >> in[0];
-            getline(cin,in.at(1));
-           if(in.at(0) == login.at(0)  && in.at(1) == login.at(1))
-             {
-                
-                break;
-             }else{
-                
-                cout << "\033[1;31mError: Invalid Username or Password. \033[0m \n";
-                attempts++;
-             }     
-        }
-
-}
 // Fucntion Clear Screen cls or clear in linux
 void cls() {
 #ifdef _WIN32
@@ -273,14 +248,39 @@ void start()
 
 
 }
+void syslogin()
+{
+    int attempts = 0 , max_attempts = 3 ;
+
+     while(attempts < max_attempts)
+        {
+            cout << "\033[1;34mUserName : \033[0m ";
+            //cin >> in[0];
+            getline(cin,in.at(0));
+            cout << "\033[1;32mPassWord : \033[0m ";
+            //cin >> in.at(1);
+            //cin >> in[0];
+            getline(cin,in.at(1));
+           if(in.at(0) == login.at(0)  && in.at(1) == login.at(1))
+             {
+                cls();
+                start();
+                return;
+             }else{
+                
+                cout << "\033[1;31mError: Invalid Username or Password. \033[0m \n";
+                attempts++;
+             }     
+        }
+
+}
 
 int main()
 {
    SetConsoleTitle("Seui Bank System");
    print_welcome();
    syslogin();
-   cls();
-   start();
+
 
 
 
