@@ -167,6 +167,7 @@ int amount_withdraw;
     Processing();
     status_balance.push_back(-amount_withdraw);
     total_balance -= amount_withdraw ;
+    total_balance = 0;
       for(int i = 0 ; i <  status_balance.size() ; i++)
     {
 
